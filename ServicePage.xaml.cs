@@ -86,7 +86,6 @@ namespace Husnutdinov_Autoservice
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Manager.MainFrame.Navigate(new AddEditPage());
         }
 
         private void TBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
@@ -112,6 +111,27 @@ namespace Husnutdinov_Autoservice
         private void RButtonDown_Checked(object sender, RoutedEventArgs e)
         {
             UpdateSerices();
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            //открыть окно ред/доб услуг
+            Manager.MainFrame.Navigate(new AddEditPage(null));
+        }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                Husnutdinov_autoserviceEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                ServiceListView.ItemsSource = Husnutdinov_autoserviceEntities.GetContext().Service.ToList();
+            }
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            //открыть окно ред/доб услуг
+            Manager.MainFrame.Navigate(new AddEditPage((sender as Button).DataContext as Service));
         }
     }
 }
