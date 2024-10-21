@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Husnutdinov_Autoservice
+namespace Husnutdinov_Autoservice 
 {
     /// <summary>
     /// Логика взаимодействия для ServicePage.xaml
