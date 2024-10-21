@@ -34,7 +34,7 @@ namespace Husnutdinov_Autoservice
 
         private void MainFrame_ContentRendered(object sender, EventArgs e)
         {
-            if(MainFrame.CanGoBack)
+            if (MainFrame.CanGoBack)
             {
                 BtnBack.Visibility = Visibility.Visible;
             }
