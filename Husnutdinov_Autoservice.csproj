@@ -68,56 +68,59 @@
       <DependentUpon>AddEditPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Client.cs">
-      <DependentUpon>HusnutdinovModel.tt</DependentUpon>
+      <DependentUpon>Husnutdinov_autoservice.tt</DependentUpon>
     </Compile>
     <Compile Include="ClientService.cs">
-      <DependentUpon>HusnutdinovModel.tt</DependentUpon>
+      <DependentUpon>Husnutdinov_autoservice.tt</DependentUpon>
     </Compile>
     <Compile Include="DocumentByService.cs">
-      <DependentUpon>HusnutdinovModel.tt</DependentUpon>
+      <DependentUpon>Husnutdinov_autoservice.tt</DependentUpon>
     </Compile>
     <Compile Include="Gender.cs">
-      <DependentUpon>HusnutdinovModel.tt</DependentUpon>
+      <DependentUpon>Husnutdinov_autoservice.tt</DependentUpon>
     </Compile>
-    <Compile Include="HusnutdinovModel.Context.cs">
+    <Compile Include="Husnutdinov_autoservice.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HusnutdinovModel.Context.tt</DependentUpon>
+      <DependentUpon>Husnutdinov_autoservice.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="HusnutdinovModel.cs">
+    <Compile Include="Husnutdinov_autoservice.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HusnutdinovModel.tt</DependentUpon>
+      <DependentUpon>Husnutdinov_autoservice.tt</DependentUpon>
     </Compile>
-    <Compile Include="HusnutdinovModel.Designer.cs">
+    <Compile Include="Husnutdinov_autoservice.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>HusnutdinovModel.edmx</DependentUpon>
+      <DependentUpon>Husnutdinov_autoservice.edmx</DependentUpon>
     </Compile>
     <Compile Include="Manager.cs" />
     <Compile Include="Manufacturer.cs">
-      <DependentUpon>HusnutdinovModel.tt</DependentUpon>
+      <DependentUpon>Husnutdinov_autoservice.tt</DependentUpon>
     </Compile>
     <Compile Include="Product.cs">
-      <DependentUpon>HusnutdinovModel.tt</DependentUpon>
+      <DependentUpon>Husnutdinov_autoservice.tt</DependentUpon>
     </Compile>
     <Compile Include="ProductPhoto.cs">
-      <DependentUpon>HusnutdinovModel.tt</DependentUpon>
+      <DependentUpon>Husnutdinov_autoservice.tt</DependentUpon>
     </Compile>
     <Compile Include="ProductSale.cs">
-      <DependentUpon>HusnutdinovModel.tt</DependentUpon>
+      <DependentUpon>Husnutdinov_autoservice.tt</DependentUpon>
     </Compile>
     <Compile Include="Service.cs">
-      <DependentUpon>HusnutdinovModel.tt</DependentUpon>
+      <DependentUpon>Husnutdinov_autoservice.tt</DependentUpon>
     </Compile>
     <Compile Include="ServicePage.xaml.cs">
       <DependentUpon>ServicePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ServicePhoto.cs">
-      <DependentUpon>HusnutdinovModel.tt</DependentUpon>
+      <DependentUpon>Husnutdinov_autoservice.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SignUpPage.xaml.cs">
+      <DependentUpon>SignUpPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Tag.cs">
-      <DependentUpon>HusnutdinovModel.tt</DependentUpon>
+      <DependentUpon>Husnutdinov_autoservice.tt</DependentUpon>
     </Compile>
     <Page Include="AddEditPage.xaml">
       <SubType>Designer</SubType>
@@ -136,6 +139,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ServicePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SignUpPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -158,12 +165,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="HusnutdinovModel.edmx">
+    <EntityDeploy Include="Husnutdinov_autoservice.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>HusnutdinovModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>Husnutdinov_autoservice.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="HusnutdinovModel.edmx.diagram">
-      <DependentUpon>HusnutdinovModel.edmx</DependentUpon>
+    <None Include="Husnutdinov_autoservice.edmx.diagram">
+      <DependentUpon>Husnutdinov_autoservice.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -182,16 +189,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="HusnutdinovModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HusnutdinovModel.edmx</DependentUpon>
-      <LastGenOutput>HusnutdinovModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="HusnutdinovModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HusnutdinovModel.edmx</DependentUpon>
-      <LastGenOutput>HusnutdinovModel.cs</LastGenOutput>
-    </Content>
     <Resource Include="Услуги автосервиса\picture.png" />
     <Resource Include="Услуги автосервиса\diz.jpg" />
     <Resource Include="Услуги автосервиса\rulevoe-upravlenie-avtomobilya.jpg" />
@@ -210,6 +207,18 @@
     <Resource Include="Услуги автосервиса\Топливная система.png" />
     <Resource Include="Услуги автосервиса\Шиномонтаж.jpg" />
     <Resource Include="Услуги автосервиса\Электрика.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Husnutdinov_autoservice.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Husnutdinov_autoservice.edmx</DependentUpon>
+      <LastGenOutput>Husnutdinov_autoservice.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Husnutdinov_autoservice.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Husnutdinov_autoservice.edmx</DependentUpon>
+      <LastGenOutput>Husnutdinov_autoservice.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -49,7 +49,7 @@ namespace Husnutdinov_Autoservice
             if (_currentService.Discount < 0 || _currentService.Discount > 1 || !_currentService.Discount.HasValue)
                 errors.AppendLine("Укажите скидку");
 
-            if (string.IsNullOrWhiteSpace(_currentService.Duration))
+            if (_currentService.Duration == 0)
                 errors.AppendLine("Укажите длительность услуги");
 
             if (errors.Length > 0)

@@ -15,6 +15,7 @@ namespace Husnutdinov_Autoservice
     
     public partial class Husnutdinov_autoserviceEntities : DbContext
     {
+
         private static Husnutdinov_autoserviceEntities _context;
         public static Husnutdinov_autoserviceEntities GetContext()
         {

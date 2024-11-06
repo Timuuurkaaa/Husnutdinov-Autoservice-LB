@@ -24,7 +24,7 @@ namespace Husnutdinov_Autoservice
         public int ID { get; set; }
         public string Title { get; set; }
         public string MainImagePath { get; set; }
-        public string Duration { get; set; }
+        public int Duration { get; set; }
         public decimal Cost { get; set; }
         public Nullable<double> Discount { get; set; }
 
