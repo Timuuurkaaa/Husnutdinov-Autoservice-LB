@@ -33,6 +33,7 @@ namespace Husnutdinov_Autoservice
 
             //при инициализации установим DataContext страницы - этот созданный объект
             DataContext = _currentService;
+            _currentService.DiscountInt = 0;
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
@@ -41,36 +42,40 @@ namespace Husnutdinov_Autoservice
 
             if (string.IsNullOrWhiteSpace(_currentService.Title))
                 errors.AppendLine("Укажите название услуги");
-
-            if (_currentService.Cost == 0)
-                errors.AppendLine("Укажите стоимость услуги");
-
-            //дискаунт у студентов числом может быть, тогда защита у всех cost
+            if (_currentService.Cost <= 0)
+                errors.AppendLine("Укажите верную стоимость услуги");
             if (_currentService.Discount < 0 || _currentService.Discount > 1 || !_currentService.Discount.HasValue)
-                errors.AppendLine("Укажите скидку");
-
-            if (_currentService.Duration == 0)
-                errors.AppendLine("Укажите длительность услуги");
+                errors.AppendLine("Укажите верную скидку");
+            if (_currentService.Duration <= 0 || _currentService.Duration > 240)
+                errors.AppendLine("Длительность услуги должна быть равна 0 или не превышать 240 минут");
 
             if (errors.Length > 0)
             {
                 MessageBox.Show(errors.ToString());
                 return;
             }
-            //добавить в контекст текущие значения новой услуги
-            if (_currentService.ID == 0)
-                Husnutdinov_autoserviceEntities.GetContext().Service.Add(_currentService);
 
-            //сохр изм, если никаких ошибок не получилось 
-            try
+            var allServices = Husnutdinov_autoserviceEntities.GetContext().Service
+                    .Where(p => p.Title.ToLower() == _currentService.Title.ToLower() && p.ID != _currentService.ID)
+                    .ToList();
+            if (allServices.Count == 0)
             {
-                Husnutdinov_autoserviceEntities.GetContext().SaveChanges();
-                MessageBox.Show("информация сохранена");
-                Manager.MainFrame.GoBack();
+                if (_currentService.ID == 0)
+                    Husnutdinov_autoserviceEntities.GetContext().Service.Add(_currentService);
+                try
+                {
+                    Husnutdinov_autoserviceEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Информация сохранена");
+                    Manager.MainFrame.GoBack();
+                }
+                catch(Exception ex) 
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Уже существует такая услуга");
             }
         }
     }

@@ -47,8 +47,23 @@ namespace Husnutdinov_Autoservice
                 errors.AppendLine("Укажите ФИО клиента");
             if (StartDate.Text == "")
                 errors.AppendLine("Укажите дату услуги");
+
+            string s = TBStart.Text;
+            if (s.Length <= 3 || !s.Contains(":"))
+                TBEnd.Text = "";
+            else
+            {
+                string[] start = s.Split(new char[] { ':' });
+                int startHour = Convert.ToInt32(start[0].ToString()) * 60;
+                int startMin = Convert.ToInt32(start[1].ToString());
+                if (startHour / 60 >= 24 || startMin >= 60)
+                    errors.AppendLine("Укажите верное время начала услуги");
+            }
+
             if (TBStart.Text == "")
                 errors.AppendLine("Укажите время начала услуги");
+
+
             if (errors.Length > 0)
             {
                 MessageBox.Show(errors.ToString());
@@ -71,6 +86,31 @@ namespace Husnutdinov_Autoservice
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString());
+            }
+        }
+
+        private void TBStart_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string s = TBStart.Text;
+
+            if (s.Length <= 3 || !s.Contains(':'))
+                TBEnd.Text = "";
+            else
+            {
+                string[] start = s.Split(new char[] { ':' });
+                int startHour = Convert.ToInt32(start[0].ToString()) * 60;
+                int startMin = Convert.ToInt32(start[1].ToString());
+
+                int sum = startHour + startMin + _currentService.Duration;
+
+                int EndHour = sum / 60;
+                EndHour = EndHour % 24;
+                int EndMin = sum % 60;
+                if (EndMin > 10)
+                    s = EndHour.ToString() + ":" + EndMin.ToString();
+                else
+                    s = EndHour.ToString() + ":" + "0" + EndMin.ToString();
+                TBEnd.Text = s;
             }
         }
     }
